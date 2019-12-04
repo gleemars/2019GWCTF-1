@@ -1,0 +1,6 @@
+services:
+  flask:
+    build: .
+    ports:
+    - 2346:80
+version: '3'

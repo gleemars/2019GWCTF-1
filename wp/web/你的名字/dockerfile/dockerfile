@@ -1,0 +1,18 @@
+FROM python:2.7
+
+RUN sed -i "s/http:\/\/archive.ubuntu.com/http:\/\/mirrors.aliyun.com/g" /etc/apt/sources.list
+COPY pip.conf /etc/pip.conf
+
+RUN echo gwctf{mY_N0we_1S_adataoaonz1bs9juN} > /flag_1s_Hera
+RUN chmod 444 /flag_1s_Hera
+
+COPY . /app
+WORKDIR /app
+
+RUN pip install -r requirements.txt
+RUN chmod -R 444 /app
+
+ENTRYPOINT ["python"]
+CMD ["app.py"]
+
+EXPOSE 80
